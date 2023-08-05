@@ -56,40 +56,82 @@ nav {
       text-align: center; 
       box-shadow: 0px 0px 20px 5px #AAA; 
       border-radius: 10px;  
-      width: 45%; 
-      height: 300px;
+      width: 48%; 
+      height: 550px;
       margin: 0px auto 0 auto;
       padding: 10px 10px;  
       animation: bounce 1.5s infinite;
     }
   
     h1 {
-      font-size: xx-large;
-      text-align: center;
-      color: rgb(255, 255, 255);
-      padding-bottom: 30px;
-    }
-    h2 {
-        text-align: left;
-        padding-left: 20px;
+        font-size: xx-large;
+        text-align: center;
         color: rgb(255, 255, 255);
+        padding-bottom: 30px;
       }
+      h2 {
+          text-align: left;
+          padding-left: 63px;
+          color: rgb(255, 255, 255);
+        }
     .opciones {
-       text-align: left;
-       padding-left: 20px;
-       padding-bottom: 25px;
-    }
+        text-align: left;
+        padding-left: 80px;
+        padding-bottom: 0px;
+     }
     .custom-select {
-      font-size: 16px; 
-      width: 320px;
-      background-color: #2414d2; 
-      color: white; 
-      padding: 10px; 
-      border: none; 
-      border-radius: 5px; 
-      outline: none; 
+        font-size: 16px; 
+        width: 320px;
+        background-color: #2414d2; 
+        color: white; 
+        padding: 10px; 
+        border: none; 
+        border-radius: 5px; 
+        outline: none; 
+      }
+      
+  
+    ::-webkit-input-placeholder{
+        color: rgb(255, 255, 255);
+        font-size: 20px;
+    }
+    .name:hover{
+      background-color: #2e24f4;
+      border-bottom: 5px solid #2e24f4;
+      height:30px;
+      width:400px;
     }
   
+    .genre {
+      background-color: #2414d2;  
+      border-bottom: 5px solid #2414d2;
+      color: rgb(255, 255, 255);
+      height: 30px;
+      width:300px;
+      
+    }
+    .genre:hover{
+      background-color: #2414d2;  
+      border-bottom: 5px solid #2414d2;
+      height:30px;
+      width:380px;
+     
+    }
+    .year {   
+      background-color: #dbeb2d;
+      border-bottom: 5px solid #dbeb2d;
+      overflow: hidden;
+      height: 30px;  
+      width:300px;
+      filter: invert(1);
+    }
+  
+    .year:hover{
+      background-color: #dbeb2d;
+      border-bottom: 5px solid #dbeb2d;
+      height: 50px;
+      width:370px;
+    }
     .buttons {
       display: flex;
       justify-content: center;
