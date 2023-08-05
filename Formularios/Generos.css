@@ -79,6 +79,16 @@ nav {
        padding-left: 20px;
        padding-bottom: 25px;
     }
+    .custom-select {
+      font-size: 16px; 
+      width: 320px;
+      background-color: #2414d2; 
+      color: white; 
+      padding: 10px; 
+      border: none; 
+      border-radius: 5px; 
+      outline: none; 
+    }
   
     .buttons {
       display: flex;

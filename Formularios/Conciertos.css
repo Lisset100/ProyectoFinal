@@ -1,0 +1,230 @@
+nav {
+    background-color: #030948;
+    color: #fff;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  nav li {
+    padding: 10px;
+  }
+  
+  nav a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  nav a:hover {
+    text-decoration: underline;
+  }
+  
+  .contactBody{
+      background-color:white;
+      background-size: cover;
+      background-attachment: fixed;
+      height:700px;
+  
+  }
+  .title{
+      margin: 0 auto;
+      width: 50%;
+      text-align: center;
+      padding-bottom: 10px;
+      font-size: 42px;
+      color: rgb(255, 255, 255);
+    }
+  
+    #title-Tag-Line{
+        font-size: 20px;
+    }
+  
+    .wrapper {
+      width: 80%;
+      height: 50%;
+      margin: 5% auto 0 auto; 
+    }
+  
+  
+    .form {
+      background: #209dab;
+      text-align: center; 
+      box-shadow: 0px 0px 20px 5px #AAA; 
+      border-radius: 10px;  
+      width: 48%; 
+      height: 550px;
+      margin: 0px auto 0 auto;
+      padding: 10px 10px;  
+      animation: bounce 1.5s infinite;
+    }
+  
+    h1 {
+        font-size: xx-large;
+        text-align: center;
+        color: rgb(255, 255, 255);
+        padding-bottom: 30px;
+      }
+      h2 {
+          text-align: left;
+          padding-left: 63px;
+          color: rgb(255, 255, 255);
+        }
+    .opciones {
+        text-align: left;
+        padding-left: 80px;
+        padding-bottom: 0px;
+     }
+    .custom-select {
+        font-size: 16px; 
+        width: 320px;
+        background-color: #2414d2; 
+        color: white; 
+        padding: 10px; 
+        border: none; 
+        border-radius: 5px; 
+        outline: none; 
+      }
+      
+  
+    ::-webkit-input-placeholder{
+        color: rgb(255, 255, 255);
+        font-size: 20px;
+    }
+    .name:hover{
+      background-color: #2e24f4;
+      border-bottom: 5px solid #2e24f4;
+      height:30px;
+      width:400px;
+    }
+  
+    .genre {
+      background-color: #2414d2;  
+      border-bottom: 5px solid #2414d2;
+      color: rgb(255, 255, 255);
+      height: 30px;
+      width:300px;
+      
+    }
+    .genre:hover{
+      background-color: #2414d2;  
+      border-bottom: 5px solid #2414d2;
+      height:30px;
+      width:380px;
+     
+    }
+    .year {   
+      background-color: #dbeb2d;
+      border-bottom: 5px solid #dbeb2d;
+      overflow: hidden;
+      height: 30px;  
+      width:300px;
+      filter: invert(1);
+    }
+  
+    .year:hover{
+      background-color: #dbeb2d;
+      border-bottom: 5px solid #dbeb2d;
+      height: 50px;
+      width:370px;
+    }
+    .buttons {
+      display: flex;
+      justify-content: center;
+    }
+  
+    .submit, .graph, .delete{
+      border-radius:5px;
+      padding:10px;
+      background-color: #2DD7BB;  
+      border: none;
+      border-bottom: 5px solid #CB64B2; 
+      transform: translateY(-120px); 
+  
+    }
+  
+    .submit:hover, .graph:hover, .delete:hover{
+      border-bottom: 5px solid #2e24f4; 
+      box-shadow: 15px 15px 15px 5px rgba(78, 72, 77, 0.219);
+    }
+  
+    .entry{
+      display: block;
+      margin: 30px auto;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      transition: all 0.5s ease 0s;
+      box-shadow: 0px 0px 25px 2px #AAA;  
+    }
+  
+    .shadow{
+      box-shadow: 0px 0px 60px 5px #AAA;
+      opacity: 0.5;
+      border-radius: 100px;
+      width: 50%; 
+      margin: 50px auto 0 auto;
+      padding: 0 20px;  
+      animation: shadow 1.5s infinite;
+    }
+  .submit{
+      
+      border-radius:5px;
+      padding:10px;
+      width:100px;
+      color: rgb(255, 255, 255);
+      background-color: #02b50e;  
+      border: none;
+      border-bottom: 5px solid #02b50e; 
+      margin-top: 150px; 
+  
+    }
+    .graph{
+      
+      border-radius:5px;
+      padding:10px;
+      width:100px;
+      color: rgb(255, 255, 255);
+      background-color: #780894;  
+      border: none;
+      border-bottom: 5px solid #780894; 
+      margin-top: 150px;
+  
+    }
+    .delete{
+      
+      border-radius:5px;
+      padding:10px;
+      width:100px;
+      color: rgb(255, 255, 255);
+      background-color: #c40101;  
+      border: none;
+      border-bottom: 5px solid #c40101; 
+      margin-top: 150px; 
+  
+    }
+  
+  
+  
+    @keyframes bounce{
+      0%{
+        
+      }
+      50%{
+        transform: translate(0, 8px);
+      }
+  
+    }
+    @keyframes shadow{
+      0%{
+        
+      }
+      50%{
+        opacity: 0.8;
+        width: 50%;
+      }
+    }
