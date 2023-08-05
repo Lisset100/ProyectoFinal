@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Bandas</title>
-  <link rel="stylesheet" media="all" href="Bandas.css" />
+  <link rel="stylesheet" media="all" href="/ProyectoFinal/Formularios/css/Conciertos.css" />
 </head>
 <body>
   <header>
@@ -15,18 +15,28 @@
         <li><a href="Conciertos.html">Conciertos</a></li>
         <li><a href="Albumes.html">Álbumes</a></li>
       </ul>
-    </nav>
+    </nav>''
   </header>
 <body class="contactBody">   
         <div class="wrapper">
 
         <form class="form">
-            <h1>Bandas</h1>
-          <input type="text" class="name entry" placeholder="Nombre de la banda"/>
+            <h1>Conciertos</h1>
+            <h2>Banda:</h2>
+            <div class="opciones">
+              <select class="custom-select">    
+                <option value="opcion1">Opción 1</option>
+                <option value="opcion2">Opción 2</option>
+                <option value="opcion3">Opción 3</option>
+                <option value="opcion4">Opción 4</option>
+              </select>
+            </div>
+         
           
-          <input type="text" class="genre entry" placeholder="Género musical"/>
-        
-          <input type="date" class="year entry" name="Año de creación">
+          <input type="text" class="genre entry" placeholder="Lugar del concierto"/>
+
+          <h2>Fecha del concierto:</h2>
+          <input type="date" class="year entry" name="Fecha del concierto">
 
 
         <div class="buttons">
@@ -40,7 +50,7 @@
         <div class="shadow"></div>
       </div>
       
-    <script src="Bandas.js"></script>
+    <script src="/ProyectoFinal/Formularios/js/Conciertos.js"></script>
 </body>
 </html>
 </body>
