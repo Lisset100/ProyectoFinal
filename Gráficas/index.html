@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <title>Dashboard</title>
+</head>
+<body>
+    <header class="navbar navbar-expand-lg navbar-info bg-info">
+        <h1>Nombre del Proyecto</h1>
+        <nav class="navbar bg-info">
+            <div class="container">
+                    <a class="navbar-brand" href="#home">Inicio</a>
+                    <a class="navbar-brand" href="#table">Consulta de Datos</a>
+                    <a class="navbar-brand" href="#graphs">Gráficas</a>
+                    <a class="navbar-brand" href="#contact">Contacto</a>
+            </div>
+        </nav>
+    </header>
+    <div class="container mt-5">
+        <h1>Dashboard de Música</h1>
+    
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <div id="graficaCopiasVendidas" class="card">
+                    <div class="card-header">Cantidad de copias vendidas por cada álbum</div>
+                    <div class="card-body">
+                        <div id="albumCopiesChart"></div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-success mt-4" onclick="consultarCopiasVendidas()">Consultar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div id="graficaBandasPorGenero" class="card">
+                    <div class="card-header">Bandas por género</div>
+                    <div class="card-body">
+                        <div id="bandsByGenreChart"></div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-success mt-4" onclick="consultarBandasPorGenero()">Consultar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <div id="graficaBandasPorPais" class="card">
+                    <div class="card-header">Bandas por países</div>
+                    <div class="card-body">
+                        <div id="bandsByCountryChart"></div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-success mt-4" onclick="consultarBandasPorPais()">Consultar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div id="graficaCantidadGeneros" class="card">
+                    <div class="card-header">Cantidad de géneros musicales</div>
+                    <div class="card-body">
+                        <div id="genreCountChart"></div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-success mt-4" onclick="consultarCantidadGeneros()">Consultar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <div id="graficaConciertosPorLugar" class="card">
+                    <div class="card-header">Conciertos por lugar</div>
+                    <div class="card-body">
+                        <div id="concertsByLocationChart"></div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-success mt-4" onclick="consultarConciertosPorLugar()">Consultar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div id="graficaAlbumesPorDecada" class="card">
+                    <div class="card-header">Álbumes por décadas</div>
+                    <div class="card-body">
+                        <div id="albumsByDecadesChart"></div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-success mt-4" onclick="consultarAlbumesPorDecada()">Consultar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="footer justify-content-center bg-info mt-4"> 
+        <div class="container-xxl">
+            <p>Derechos Reservados Team5 &copy; 2023</p>
+            <p>Contacto: ejemplo@example.com</p>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script type="module" src="main.js"></script>
+</body>
+</html>
