@@ -1,62 +1,76 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bandas</title>
-  <link rel="stylesheet" media="all" href="/ProyectoFinal/Formularios/css/Albumes.css" />
-</head>
-<body>
-  <header>
-    <nav>
-      <ul>
-        <li><a href="Bandas.html">Bandas</a></li>
-        <li><a href="Generos.html">Géneros</a></li>
-        <li><a href="Conciertos.html">Conciertos</a></li>
-        <li><a href="Albumes.html">Álbumes</a></li>
-      </ul>
-    </nav>''
-  </header>
-<body class="contactBody">   
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Bandas</title>
+        <link
+            rel="stylesheet"
+            media="all"
+            href="/ProyectoFinal/Formularios/css/Albumes.css"
+        />
+    </head>
+    <body class="contactBody">
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="Bandas.html">Bandas</a></li>
+                    <li><a href="Generos.html">Géneros</a></li>
+                    <li><a href="Conciertos.html">Conciertos</a></li>
+                    <li><a href="Albumes.html">Álbumes</a></li>
+                </ul>
+            </nav>
+        </header>
         <div class="wrapper">
+            <form class="form">
+                <h1>Álbumes</h1>
+                <h2>Banda:</h2>
 
-        <form class="form">
-            <h1>Álbumes</h1>
-            <h2>Banda:</h2>
-            
-              <select > 
-                <select class="custom-select" id="selectOptions"></select>   
-                <option value="opcion1">Opción 1</option>
-                <option value="opcion2">Opción 2</option>
-                <option value="opcion3">Opción 3</option>
-                <option value="opcion4">Opción 4</option>
-              </select>
-              
-            
-            </div>
-          <input type="text" class="name entry" placeholder="Nombre del álbum"/>
-          
-          <input type="text" class="genre entry" placeholder="Lugar"/>
+                <select class="custom-select"></select>
 
-          <h2>Fecha de lanzamiento:</h2>
-          <input type="date" class="year entry" name="Fecha de lanzamiento">
-          
-          <input type="text" class="name entry" placeholder="Duración (en minutos)"/>
-          
-          <input type="text" class="genre entry" placeholder="Copias vendidas"/>
+                <input
+                    type="text"
+                    class="name entry"
+                    placeholder="Nombre del álbum"
+                />
 
+                <input type="text" class="genre entry" placeholder="Lugar" />
 
-        <div class="buttons">
-          <button class="submit entry" onclick="Gracias()">Guardar</button>
-          <button class="graph entry" onclick="Graficado()">Graficar</button>
-          <button class="delete entry" onclick="Borrado()">Borrar</button>
+                <h2>Fecha de lanzamiento:</h2>
+                <input
+                    type="date"
+                    class="year entry"
+                    name="Fecha de lanzamiento"
+                />
+
+                <input
+                    type="text"
+                    class="name entry"
+                    placeholder="Duración (en minutos)"
+                />
+
+                <input
+                    type="text"
+                    class="genre entry"
+                    placeholder="Copias vendidas"
+                />
+
+                <div class="buttons">
+                    <button class="submit entry" onclick="Gracias()">
+                        Guardar
+                    </button>
+                    <button class="graph entry" onclick="Graficado()">
+                        Graficar
+                    </button>
+                    <button class="delete entry" onclick="Borrado()">
+                        Borrar
+                    </button>
+                </div>
+            </form>
+
+            <div class="shadow"></div>
         </div>
-          
-        </form>  
-        
-        <div class="shadow"></div>
-      </div>
-      
-    <script src="/ProyectoFinal/Formularios/js/Albumes.js"></script>
-</body>
+
+        <!--<script src="/ProyectoFinal/Formularios/js/Bandas.js"></script>-->
+    </body>
 </html>
