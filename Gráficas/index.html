@@ -8,7 +8,7 @@
 </head>
 <body>
     <header class="navbar navbar-expand-lg navbar-info bg-info">
-        <h1>Nombre del Proyecto</h1>
+        <h2>Equipo 5</h2>
         <nav class="navbar bg-info">
             <div class="container">
                     <a class="navbar-brand" href="#home">Inicio</a>
@@ -21,81 +21,85 @@
     <div class="container mt-5">
         <h1>Dashboard de Música</h1>
     
-        <div class="row mt-4">
-            <div class="col-md-6">
-                <div id="graficaCopiasVendidas" class="card">
-                    <div class="card-header">Cantidad de copias vendidas por cada álbum</div>
-                    <div class="card-body">
-                        <div id="albumCopiesChart"></div>
-                    </div>
-                    <div class="card-footer">
-                        <button class="btn btn-success mt-4" onclick="consultarCopiasVendidas()">Consultar</button>
-                    </div>
+        <!-- Gráfica 1: Cantidad de copias vendidas por cada álbum -->
+        <div class="col-md-6">
+            <div id="graficaCopiasVendidas" class="card">
+                <div class="card-header">Cantidad de copias vendidas por cada álbum</div>
+                <div class="card-body">
+                    <div id="albumCopiesChart"></div>
                 </div>
-            </div>
-            <div class="col-md-6">
-                <div id="graficaBandasPorGenero" class="card">
-                    <div class="card-header">Bandas por género</div>
-                    <div class="card-body">
-                        <div id="bandsByGenreChart"></div>
-                    </div>
-                    <div class="card-footer">
-                        <button class="btn btn-success mt-4" onclick="consultarBandasPorGenero()">Consultar</button>
-                    </div>
+                <div class="card-footer">
+                    <button class="btn btn-success mt-4" id="btnGraph1">Consultar</button>
                 </div>
             </div>
         </div>
     
-        <div class="row mt-4">
-            <div class="col-md-6">
-                <div id="graficaBandasPorPais" class="card">
-                    <div class="card-header">Bandas por países</div>
-                    <div class="card-body">
-                        <div id="bandsByCountryChart"></div>
-                    </div>
-                    <div class="card-footer">
-                        <button class="btn btn-success mt-4" onclick="consultarBandasPorPais()">Consultar</button>
-                    </div>
+        <!-- Gráfica 2: Bandas por Género -->
+        <div class="col-md-6">
+            <div id="graficaBandasPorGenero" class="card">
+                <div class="card-header">Bandas por género</div>
+                <div class="card-body">
+                    <div id="bandsByGenreChart"></div>
                 </div>
-            </div>
-            <div class="col-md-6">
-                <div id="graficaCantidadGeneros" class="card">
-                    <div class="card-header">Cantidad de géneros musicales</div>
-                    <div class="card-body">
-                        <div id="genreCountChart"></div>
-                    </div>
-                    <div class="card-footer">
-                        <button class="btn btn-success mt-4" onclick="consultarCantidadGeneros()">Consultar</button>
-                    </div>
+                <div class="card-footer">
+                    <button class="btn btn-success mt-4" id="btnGraph2">Consultar</button>
                 </div>
             </div>
         </div>
     
-        <div class="row mt-4">
-            <div class="col-md-6">
-                <div id="graficaConciertosPorLugar" class="card">
-                    <div class="card-header">Conciertos por lugar</div>
-                    <div class="card-body">
-                        <div id="concertsByLocationChart"></div>
-                    </div>
-                    <div class="card-footer">
-                        <button class="btn btn-success mt-4" onclick="consultarConciertosPorLugar()">Consultar</button>
-                    </div>
+        <!-- Gráfica 3: Bandas por países -->
+        <div class="col-md-6">
+            <div id="graficaBandasPorPais" class="card">
+                <div class="card-header">Bandas por países</div>
+                <div class="card-body">
+                    <div id="bandsByCountryChart"></div>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-success mt-4" id="btnGraph3">Consultar</button>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div id="graficaAlbumesPorDecada" class="card">
-                    <div class="card-header">Álbumes por décadas</div>
-                    <div class="card-body">
-                        <div id="albumsByDecadesChart"></div>
-                    </div>
-                    <div class="card-footer">
-                        <button class="btn btn-success mt-4" onclick="consultarAlbumesPorDecada()">Consultar</button>
-                    </div>
+        </div>
+    
+        <!-- Gráfica 4: Cantidad de géneros musicales -->
+        <div class="col-md-6">
+            <div id="graficaCantidadGeneros" class="card">
+                <div class="card-header">Cantidad de géneros musicales</div>
+                <div class="card-body">
+                    <div id="genreCountChart"></div>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-success mt-4" id="btnGraph4">Consultar</button>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Gráfica 5: Conciertos por lugar -->
+        <div class="col-md-6">
+            <div id="graficaConciertosPorLugar" class="card">
+                <div class="card-header">Conciertos por lugar</div>
+                <div class="card-body">
+                    <div id="concertsByLocationChart"></div>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-success mt-4" id="btnGraph5">Consultar</button>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Gráfica 6: Álbumes por décadas -->
+        <div class="col-md-6">
+            <div id="graficaAlbumesPorDecada" class="card">
+                <div class="card-header">Álbumes por décadas</div>
+                <div class="card-body">
+                    <div id="albumsByDecadesChart"></div>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-success mt-4" id="btnGraph6">Consultar</button>
                 </div>
             </div>
         </div>
     </div>
+    
     
     <footer class="footer justify-content-center bg-info mt-4"> 
         <div class="container-xxl">

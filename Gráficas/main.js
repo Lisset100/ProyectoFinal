@@ -1,331 +1,236 @@
-<script type="module">
-// Obtener datos de los endpoints usando Fetch API
-function consultarCopiasVendidas() {
-    fetch("http://127.0.0.1:8000/api/albums")
-        .then((response) => response.json())
-        .then((data) => {
-            // Llamar a la función para crear la gráfica de barras
-            createBarChart(data);
-        })
-        .catch((error) => {
-            console.error("Error al obtener datos de álbumes:", error);
-        });
+// Fetch para obtener datos de la API
+async function fetchData(url) {
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
 }
 
-function consultarBandasPorGenero() {
-    fetch("http://127.0.0.1:8000/api/bands")
-        .then((response) => response.json())
-        .then((data) => {
-            // Llamar a la función para crear la gráfica de pastel
-            createPieChart(data);
-        })
-        .catch((error) => {
-            console.error("Error al obtener datos de bandas:", error);
-        });
-}
-
-function consultarBandasPorPais() {
-    fetch("http://127.0.0.1:8000/api/bands")
-        .then((response) => response.json())
-        .then((data) => {
-            // Llamar a la función para crear la gráfica de barras
-            createBandsByCountryChart(data);
-        })
-        .catch((error) => {
-            console.error("Error al obtener datos de bandas:", error);
-        });
-}
-
-function consultarCantidadGeneros() {
-    fetch("http://127.0.0.1:8000/api/genres")
-        .then((response) => response.json())
-        .then((data) => {
-            // Llamar a la función para crear la gráfica de línea
-            createGenreCountChart(data);
-        })
-        .catch((error) => {
-            console.error("Error al obtener datos de generos:", error);
-        });
-}
-
-function consultarConciertosPorLugar() {
-    fetch("http://127.0.0.1:8000/api/concerts")
-        .then((response) => response.json())
-        .then((data) => {
-            // Llamar a la función para crear la gráfica de barras
-            createConcertsByLocationChart(data);
-        })
-        .catch((error) => {
-            console.error("Error al obtener datos de conciertos:", error);
-        });
-}
-
-function consultarAlbumesPorDecada() {
-    fetch("http://127.0.0.1:8000/api/albums")
-        .then((response) => response.json())
-        .then((data) => {
-            // Llamar a la función para crear la gráfica de barras
-            createAlbumsByDecadesChart(data);
-        })
-        .catch((error) => {
-            console.error("Error al obtener datos de álbumes:", error);
-        });
-}
-
-  // Función para crear la gráfica de barras
-function createBarChart(stats) {
-    const statLabels = stats.map((stat) => stat.statName);
-    const baseStats = stats.map((stat) => stat.base_stat);
-
-    const data = [
-        {
-            x: statLabels,
-            y: baseStats,
-            type: "bar",
-        },
-    ];
-
-    const layout = {
-        title: "Gráfica de Barras",
-        xaxis: {
-            title: "Estadísticas",
-        },
-        yaxis: {
-            title: "Valor",
-        },
-    };
-
-    Plotly.newPlot("chart1", data, layout);
-}
-
-  // Función para crear la gráfica de pastel
-function createPieChart(types) {
-    const typeLabels = types.map((type) => type.genreName);
-
-    const data = [
-        {
-            labels: typeLabels,
-            type: "pie",
-        },
-    ];
-
-    const layout = {
-        title: "Gráfica de Pastel",
-    };
-
-    Plotly.newPlot("chart2", data, layout);
-}
-
-  // Función para crear la gráfica de línea
-function createLineChart(moves) {
-    const moveNames = moves;
-    const movePower = moves.map(() => Math.floor(Math.random() * 100) + 1);
-
-    const data = [
-        {
-            x: moveNames,
-            y: movePower,
-            type: "line",
-        },
-    ];
-
-    const layout = {
-        title: "Gráfica de Línea",
-        xaxis: {
-            title: "Movimientos",
-            },
-        yaxis: {
-            title: "Poder",
-            },
-    };
-
-    Plotly.newPlot("chart3", data, layout);
-}
-
-  // Función para crear la gráfica de radar
-function createRadarChart(stats) {
-    const statLabels = stats.map((stat) => stat.statName);
-    const baseStats = stats.map((stat) => stat.base_stat);
-
-    const data = [
-        {
-        type: "scatterpolar",
-        r: baseStats,
-        theta: statLabels,
-        fill: "toself",
-        },
-    ];
-
-    const layout = {
-        title: "Gráfica de Radar",
-        polar: {
-        radialaxis: {
-            visible: true,
-            range: [0, Math.max(...baseStats) + 20],
-            },
-        },
-    };
-
-    Plotly.newPlot("chart4", data, layout);
-}
-
-// Gráfica 1: Cantidad de copias vendidas por cada álbum
-function createBarChart(albumsData) {
-    const albumNames = albumsData.map((album) => album.name);
-    const albumCopies = albumsData.map((album) => album.copies_sold);
-
+// Función para crear la gráfica de barras
+function createBarChart(xData, yData, chartDiv) {
     const data = [{
-        x: albumNames,
-        y: albumCopies,
-        type: "bar",
-        marker: { color: "rgba(0, 0, 255)" }
+        x: xData,
+        y: yData,
+        type: "bar"
     }];
+    
+    const layout = {
+        title: "Título de la gráfica",
+        xaxis: { title: "Eje X" },
+        yaxis: { title: "Eje Y" }
+    };
 
-    const layout = { title: "Cantidad de Copias Vendidas por Álbum" };
-
-    Plotly.newPlot("albumCopiesChart", data, layout);
+    Plotly.newPlot(chartDiv, data, layout);
 }
 
-// Gráfica 2: Bandas por género
-function createPieChart(bandsData) {
-    const genres = bandsData.map((band) => band.type.genreName);
-    const bandCounts = bandsData.map((band) => band.band_count);
-
+// Función para crear la gráfica de pastel
+function createPieChart(labels, values, chartDiv) {
     const data = [{
-        labels: genres,
-        values: bandCounts,
+        labels: labels,
+        values: values,
         type: "pie"
     }];
 
-    const layout = { title: "Bandas por Género" };
-
-    Plotly.newPlot("bandsByGenreChart", data, layout);
-}
-
-// Gráfica 3: Bandas por países
-function createBandsByCountryChart(bandsData) {
-    const countries = bandsData.map((band) => band.country);
-    const bandCountsByCountry = countries.reduce((acc, country) => {
-        acc[country] = (acc[country] || 0) + 1;
-        return acc;
-    }, {});
-
-    const data = [{
-        x: Object.keys(bandCountsByCountry),
-        y: Object.values(bandCountsByCountry),
-        type: "bar",
-        marker: { color: "rgba(255, 0, 0, 0.6)" }
-    }];
-
-    const layout = { title: "Bandas por Países" };
-
-    Plotly.newPlot("bandsByCountryChart", data, layout);
-}
-
-// Gráfica 4: Cantidad de géneros musicales
-function createGenreCountChart() {
-    const genreCount = bandTypes.length;
-
-    const data = [
-        {
-            labels: ["Total"],
-            values: [genreCount],
-            type: "pie",
-        },
-    ];
-
     const layout = {
-        title: "Cantidad de Géneros Musicales",
+        title: "Título de la gráfica"
     };
 
-    Plotly.newPlot("genreCountChart", data, layout);
+    Plotly.newPlot(chartDiv, data, layout);
 }
 
-// Gráfica 5: Conciertos por cada lugar en el que se realizó
-function createConcertsByLocationChart(concertsData) {
-    const locations = concertsData.map((concert) => concert.location);
-    const concertCountsByLocation = locations.reduce((acc, location) => {
-        acc[location] = (acc[location] || 0) + 1;
-        return acc;
-    }, {});
+// Función para crear la gráfica de radar
+function createRadarChart(dataArray, labels, chartDiv) {
+    const data = [{
+        type: "scatterpolar",
+        r: dataArray,
+        theta: labels,
+        fill: "toself"
+    }];
 
-    const data = [
-        {
-            x: Object.keys(concertCountsByLocation),
-            y: Object.values(concertCountsByLocation),
-            type: "bar",
-            marker: { color: "rgba(0, 255, 0)" },
+    const layout = {
+        polar: {
+            radialaxis: { visible: true, range: [0, Math.max(...dataArray)] }
         },
-    ];
+        showlegend: false
+    };
 
-    const layout = { title: "Conciertos por cada lugar en el que se realizó" };
-
-    Plotly.newPlot("concertsByLocationChart", data, layout);
+    Plotly.newPlot(chartDiv, data, layout);
 }
+
+// Función para consultar y mostrar la gráfica
+function consultarGrafica() {
+    const chartType = document.getElementById("opcion").value;
+    const chartDiv = document.getElementById("myDiv");
+
+    switch (chartType) {
+        case "bar":
+            fetchData("URL_DEL_ENDPOINT")
+                .then(data => {
+                    // Obtener los datos necesarios para la gráfica
+                    const xData = data.map(item => item.xValue);
+                    const yData = data.map(item => item.yValue);
+
+                    createBarChart(xData, yData, chartDiv);
+                })
+                .catch(error => console.error("Error:", error));
+            break;
+
+        case "pie":
+            fetchData("URL_DEL_ENDPOINT")
+                .then(data => {
+                    // Obtener los datos necesarios para la gráfica
+                    const labels = data.map(item => item.label);
+                    const values = data.map(item => item.value);
+
+                    createPieChart(labels, values, chartDiv);
+                })
+                .catch(error => console.error("Error:", error));
+            break;
+
+        case "radar":
+            fetchData("URL_DEL_ENDPOINT")
+                .then(data => {
+                    // Obtener los datos necesarios para la gráfica
+                    const dataArray = data.map(item => item.dataValue);
+                    const labels = data.map(item => item.label);
+
+                    createRadarChart(dataArray, labels, chartDiv);
+                })
+                .catch(error => console.error("Error:", error));
+            break;
+    }
+}
+
+// Agregar evento al botón de consulta
+const consultarButton = document.getElementById("consultarButton");
+consultarButton.addEventListener("click", consultarGrafica);
+
+// Gráfica 1: Cantidad de copias vendidas por cada álbum
+document.getElementById("btnGraph1").addEventListener("click", async () => {
+    const albumsData = await fetchData("http://127.0.0.1:8000/api/albums");
+    
+    // Procesar datos y crear la gráfica
+    const albumNames = albumsData.map(album => album.albumName);
+    const copiesSold = albumsData.map(album => album.copiesSold);
+    
+    const graphData = [{
+        x: albumNames,
+        y: copiesSold,
+        type: "bar",
+        marker: { color: "blue" }
+    }];
+    
+    const layout = {
+        title: "Cantidad de copias vendidas por cada álbum",
+        xaxis: { title: "Álbumes" },
+        yaxis: { title: "Copias Vendidas" }
+    };
+    
+    createGraph("myDiv1", graphData, layout);
+});
+
+// Gráfica 2: Bandas por Género
+document.getElementById("btnGraph2").addEventListener("click", async () => {
+    const bandsData = await fetchData("http://127.0.0.1:8000/api/bands");
+    
+    // Procesar datos y crear la gráfica
+    const genres = [...new Set(bandsData.map(band => band.type.genreName))];
+    const bandCountsByGenre = genres.map(genre => {
+        return bandsData.filter(band => band.type.genreName === genre).length;
+    });
+    
+    const graphData = [{
+        labels: genres,
+        values: bandCountsByGenre,
+        type: "pie"
+    }];
+    
+    const layout = {
+        title: "Bandas por Género"
+    };
+    
+    createGraph("myDiv2", graphData, layout);
+});
+
+// Gráfica 3: Bandas por países
+document.getElementById("btnGraph3").addEventListener("click", async () => {
+    const bandsData = await fetchData("http://127.0.0.1:8000/api/bands");
+    
+    // Procesar datos y crear la gráfica
+    const countries = [...new Set(bandsData.map(band => band.country))];
+    const bandsCountByCountry = countries.map(country => {
+        return bandsData.filter(band => band.country === country).length;
+    });
+    
+    const graphData = [{
+        x: countries,
+        y: bandsCountByCountry,
+        type: "bar",
+        marker: { color: "orange" }
+    }];
+    
+    const layout = {
+        title: "Bandas por Países",
+        xaxis: { title: "Países" },
+        yaxis: { title: "Cantidad de Bandas" }
+    };
+    
+    createGraph("myDiv3", graphData, layout);
+});
+
+// Gráfica 4: Cantidad de géneros musicales
+document.getElementById("btnGraph4").addEventListener("click", async () => {
+    const genresData = await fetchData("http://127.0.0.1:8000/api/genres");
+    
+    // Procesar datos y crear la gráfica
+    const genreNames = genresData.map(genre => genre.genreName);
+    const genreCounts = genresData.map(genre => genre.band_count);
+    
+    const graphData = [{
+        x: genreNames,
+        y: genreCounts,
+        type: "bar",
+        marker: { color: "purple" }
+    }];
+    
+    const layout = {
+        title: "Cantidad de Géneros Musicales",
+        xaxis: { title: "Géneros Musicales" },
+        yaxis: { title: "Cantidad de Bandas por Género" }
+    };
+    
+    createGraph("myDiv4", graphData, layout);
+});
 
 // Gráfica 6: Álbumes por décadas
-function createAlbumsByDecadesChart(albumsData) {
-    // Agrupar los álbumes por décadas
-    const albumsByDecades = albumsData.reduce((acc, album) => {
-        const decade = getDecadeFromYear(album.releaseYear); 
-        acc[decade] = (acc[decade] || 0) + 1;
-        return acc;
-    }, {});
+document.getElementById("btnGraph6").addEventListener("click", async () => {
+    const albumsData = await fetchData("http://127.0.0.1:8000/api/albums");
+    
+    // Procesar datos y crear la gráfica
+    const decades = ["70's", "80's", "90's", "00's", "10's"];
+    const albumsByDecades = [0, 0, 0, 0, 0];
+    
+    albumsData.forEach(album => {
+        const year = parseInt(album.releaseDate.split("-")[0]);
+        if (year >= 1970 && year < 1980) albumsByDecades[0]++;
+        else if (year >= 1980 && year < 1990) albumsByDecades[1]++;
+        else if (year >= 1990 && year < 2000) albumsByDecades[2]++;
+        else if (year >= 2000 && year < 2010) albumsByDecades[3]++;
+        else if (year >= 2010 && year <= 2021) albumsByDecades[4]++;
+    });
+    
+    const graphData = [{
+        x: decades,
+        y: albumsByDecades,
+        type: "bar",
+        marker: { color: "green" }
+    }];
+    
+    const layout = {
+        title: "Álbumes por Décadas",
+        xaxis: { title: "Décadas" },
+        yaxis: { title: "Cantidad de Álbumes" }
+    };
+    
+    createGraph("myDiv6", graphData, layout);
+});
 
-    const decades = Object.keys(albumsByDecades);
-    const albumCounts = Object.values(albumsByDecades);
-
-    const data = [
-        {
-            x: decades,
-            y: albumCounts,
-            type: "bar",
-            marker: { color: "rgba(255, 165, 0, 0.6)" },
-        },
-    ];
-
-    const layout = { title: "Álbumes por décadas" };
-
-    Plotly.newPlot("albumsByDecadesChart", data, layout);
-}
-
-// Función auxiliar para obtener la década a partir del año del álbum
-function getDecadeFromYear(year) {
-    return `${Math.floor(year / 10) * 10}'s`;
-}
-
-// Datos para las gráficas
-const bandStats = [
-    { stat: { statName: "Popularidad" }, base_stat: 80 },
-    { stat: { statName: "Ventas" }, base_stat: 90 },
-    { stat: { statName: "Popularidad" }, base_stat: 70 },
-];
-
-const bandTypes = [
-    { type: { genreName: "Rock" } },
-    { type: { genreName: "Pop" } },
-    { type: { genreName: "Jazz" } },
-];
-
-const bandSongs = [
-    "Canción 1",
-    "Canción 2",
-    "Canción 3",
-];
-
-const bandRadarStats = [
-    { stat: { statName: "Popularidad" }, base_stat: 80 },
-    { stat: { statName: "Ventas" }, base_stat: 90 },
-    { stat: { statName: "Reproducciones" }, base_stat: 70 },
-    { stat: { statName: "Seguidores" }, base_stat: 85 },
-    { stat: { statName: "Premios" }, base_stat: 60 },
-];
-
-createBarChart(albumsData);
-createPieChart(bandsData);
-createLineChart(bandSongs);
-createRadarChart(bandRadarStats);
-createGenreCountChart();
-createConcertsByLocationChart(concertsData);
-createAlbumsByDecadesChart(albumsData);
-</script>
