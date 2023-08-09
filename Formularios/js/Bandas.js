@@ -17,7 +17,6 @@ function mostrarDatos() {
     onclick = "eliminar"();
 }
 
-// Datos obtenidos de la respuesta de la API en Thunder Client
 const responseData = [
     { id: 1, name: "Pink Floyd" },
     { id: 2, name: "Iron Maiden" },

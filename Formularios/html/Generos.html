@@ -7,7 +7,7 @@
         <link
             rel="stylesheet"
             media="all"
-            href="/ProyectoFinal/Formularios/css/Generos.css"
+            href="/Formularios/css/Generos.css"
         />
     </head>
     <body class="contactBody">
@@ -21,19 +21,23 @@
                 </ul>
             </nav>
         </header>
-        <div class="wrapper">
-            <form class="form">
-                <h1>Géneros musicales</h1>
-                <h2>Nombre del género:</h2>
 
-                <input
-                    type="text"
-                    class="genre entry"
-                    placeholder="Género musical"
-                />
+        <div class="wrapper">
+            <div class="form">
+                <form>
+                    <h1>Géneros musicales</h1>
+                    <h2>Nombre del género:</h2>
+
+                    <input
+                        id="genderName"
+                        type="text"
+                        class="genre entry"
+                        placeholder="Género musical"
+                    />
+                </form>
 
                 <div class="buttons">
-                    <button class="submit entry" onclick="Gracias()">
+                    <button class="submit entry" onclick="Save()">
                         Guardar
                     </button>
                     <button class="graph entry" onclick="Graficado()">
@@ -43,11 +47,10 @@
                         Borrar
                     </button>
                 </div>
-            </form>
-
-            <div class="shadow"></div>
+                <div class="shadow"></div>
+            </div>
         </div>
 
-        <script src="/ProyectoFinal/Formularios/js/Generos.js"></script>
+        <script src="/Formularios/js/Generos.js"></script>
     </body>
 </html>
