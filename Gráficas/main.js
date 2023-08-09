@@ -71,9 +71,9 @@ function consultarGrafica(buttonId, fetchUrl, chartFunction) {
 }
 
 // Consultar gráficas utilizando los botones y funciones correspondientes
-consultarGrafica("button_1", "URL1", createBarChart);
-consultarGrafica("button_2", "URL2", createPieChart);
-consultarGrafica("button_3", "URL3", createRadarChart);
-consultarGrafica("button_4", "URL1", createBarChart);
-consultarGrafica("button_5", "URL2", createPieChart);
-consultarGrafica("button_6", "URL3", createRadarChart);
+consultarGrafica("button_1", "http://127.0.0.1:8000/api/albums", createBarChart); // Cantidad de copias vendidas por cada álbum
+consultarGrafica("button_2", "http://127.0.0.1:8000/api/genres", createPieChart); // Bandas por género
+consultarGrafica("button_3", "http://127.0.0.1:8000/api/bands", createRadarChart); // Bandas por países
+consultarGrafica("button_4", "http://127.0.0.1:8000/api/genres", createPieChart); // Cantidad de géneros musicales
+consultarGrafica("button_5", "http://127.0.0.1:8000/api/concerts", createBarChart); // Conciertos por cada lugar en el que se realizó
+consultarGrafica("button_6", "http://127.0.0.1:8000/api/albums", createRadarChart); // Álbumes por décadas
